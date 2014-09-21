@@ -1,0 +1,4 @@
+name: hexacore
+description: A pub package
+dependencies:
+  unittest: any
