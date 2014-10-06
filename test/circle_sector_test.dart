@@ -9,11 +9,11 @@
   test("distance", (){
     expect(CircleSector.distance(0, 1, 1, 1), equals(1));
     expect(CircleSector.distance(0, 1, 2, 2), equals(2));
-    expect(CircleSector.distance(0, 1, 1, 2), equals(2));
-    expect(CircleSector.distance(0, 1, 1, 3), equals(3));
+    expect(CircleSector.distance(0, 1, 1, 2), equals(1));
+    expect(CircleSector.distance(0, 1, 1, 3), equals(2));
     expect(CircleSector.distance(0, 1, 0, 4), equals(3));
-    expect(CircleSector.distance(3, 3, 0, 4), equals(3));
-    expect(CircleSector.distance(3, 3, 2, 4), equals(1));
+    expect(CircleSector.distance(3, 3, 0, 4), equals(4));
+    expect(CircleSector.distance(3, 3, 2, 4), equals(2));
     expect(CircleSector.distance(3, 3, 2, 3), equals(1));
     expect(CircleSector.distance(3, 3, 4, 3), equals(1));
     expect(CircleSector.distance(3, 3, 3, 2), equals(1));
@@ -51,16 +51,29 @@
   
   test("createMap",(){
     CircleSector cs = new CircleSector(2, 2, 2);
+    
+    expect(cs.fields.length, equals(19));
     expect(cs.fields.first.x, equals(0));
-    expect(cs.fields.first.y, equals(1));
+    expect(cs.fields.first.y, equals(0));
+    
+    Field f = cs.fields[5];
+    expect(f.x, equals(2));
+    expect(f.y, equals(1));
+    
+    f = cs.fields[10];
+    expect(f.x, equals(3));
+    expect(f.y, equals(2));
+    
+    f = cs.fields[15];
+    expect(f.x, equals(4));
+    expect(f.y, equals(3));
     
     cs = new CircleSector(1, 1, 1);
-    expect(cs.fields.first.x, equals(0));
+    expect(cs.fields.first.x, equals(1));
     expect(cs.fields.first.y, equals(1));
     
     cs = new CircleSector(3, 2, 3);
-    expect(cs.fields.first.x, equals(0));
-    expect(cs.fields.first.y, equals(1)); 
+    expect(cs.fields.first, equals(null));
   });
   
  } 

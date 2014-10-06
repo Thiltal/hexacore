@@ -4,6 +4,8 @@ class Field{
   int x;
   int y;
   int modY;
+  int top;
+  int left;
   
   Field(this.x, this.y){
     
