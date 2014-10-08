@@ -7,13 +7,9 @@ class CircleSector {
   int centerY;
   // floored half size of map
   int size;
-  int _field_width;
-  int _field_height;
 
-  CircleSector(this.centerX, this.centerY, this.size, this._field_width) {
-    
-    _field_height = (_field_width * 0.866025).round();
-    
+
+  CircleSector(this.centerX, this.centerY, this.size) {
     int startX = centerX - size;
     int startY = centerY - size ~/ 2;
 
@@ -38,12 +34,6 @@ class CircleSector {
         i++;
       }
     }
-    
-    for(Field f in fields){
-      f.top = (f.x + f.y)*(_field_height/2).ceil();
-      f.left = (f.y - f.x +size)*(3*_field_width/4).ceil();
-    }
-    
   }
 
 
